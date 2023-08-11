@@ -27,11 +27,11 @@ public class ProductInfoClient {
             .setPrice(1000.0f)
             .build()
     );
-    System.out.println(productID.getValue());
+    System.out.println("제품 ID: " + productID.getValue());
 
     // 제품ID로 제품 조회 메서드(getProduct)를 호출함. 응답값은 제품 정보
     ProductInfoOuterClass.Product product = stub.getProduct(productID);
-    System.out.println(product.toString());
+    System.out.println("제품 정보: " + product.toString());
     channel.shutdown(); // 모든 작업이 완료되면 연결을 종료해 사용한 네트워크 리소스를 반환함
   }
 }
