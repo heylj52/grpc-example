@@ -1,0 +1,20 @@
+syntax = "proto3"; // 프로토콜 버퍼 버전
+package ecommerce; // 프로토콜 메시지 타입 사이의 이름 충돌 방지, 코드 생성에 사용
+
+service ProductInfo { // 서비스 인터페이스 정의
+  rpc addProduct(Product) returns (ProductID); // 제품 정보 추가하는 원격 메서드
+  rpc getProduct(ProductID) returns (Product); // 제품 정보 가져오는 원격 메서드
+}
+
+// 사용자 정의 타입
+// 메시지 형식, 타입 정의
+message Product {
+  string id = 1; // 메시지 바이너리 형식에서 필드를 식별하는데 사용하는 고유 필드 번호
+  string name = 2;
+  string description = 3;
+  float price = 4;
+}
+
+message ProductID {
+  string value = 1;
+}
